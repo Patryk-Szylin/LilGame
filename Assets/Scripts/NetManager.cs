@@ -20,8 +20,6 @@ public class NetManager : NetworkManager {
     {
         base.OnClientConnect(conn);
 
-        Debug.Log("Client connected...");
-        Debug.Log(conn.address);
     }
 
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
@@ -32,9 +30,10 @@ public class NetManager : NetworkManager {
     public override void OnServerConnect(NetworkConnection conn)
     {
         base.OnServerConnect(conn);
-
         Debug.Log("Connected new player: " + conn.address);
     }
+
+
 
     public override void OnStartHost()
     {

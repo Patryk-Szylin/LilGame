@@ -1,54 +1,32 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class PlayerMovement : NetworkBehaviour
 {
+    public float m_speed = 25f;
+    private Rigidbody rb;
+    public bool m_enableWalking;
 
-    // Use this for initialization
     void Start()
     {
-
+        rb = GetComponent<Rigidbody>();
     }
 
-
-    // Update is called once per frame
-    void FixedUpdate()
+    private void Update()
     {
-
         if (!isLocalPlayer)
             return;
-        Move();
-    }
 
-    public void Move()
-    {
-        //if (!isLocalPlayer)
-        //    return;
+        if (m_enableWalking)
+        {
+            Vector3 Movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            Debug.Log("djasiojdi");
-            this.transform.Translate(Vector3.forward * Time.deltaTime * 10f);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            Debug.Log("djasiojdi");
-            this.transform.Translate(Vector3.back * Time.deltaTime * 10f);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            Debug.Log("djasiojdi");
-            this.transform.Translate(Vector3.left * Time.deltaTime * 10f);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            Debug.Log("djasiojdi");
-            this.transform.Translate(Vector3.right * Time.deltaTime * 10f);
+            this.transform.position += Movement * m_speed * Time.deltaTime;
         }
     }
 
 
 }
+
