@@ -18,27 +18,12 @@ public class HexMapEditor : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("handling input");
-            HandleInput();
-        }
+
 
 
     }
 
-    void HandleInput()
-    {
-        //Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        //    RaycastHit hit;
-        //    if (Physics.Raycast(inputRay, out hit))
-        //    {
-        //        //hexGrid.ColorCell(hit.point, activeColor);
-        //        hexGrid.SpawnAtCell(hit.point, MwallPrefab);
-
-        //    }
-    }
 
     public void SelectColor(int index)
     {
