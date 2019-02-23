@@ -5,10 +5,15 @@ using UnityEngine;
 public class PlayerAbility : MonoBehaviour {
 
     public GameObject MwallPrefab;
+    private HexGrid hexGrid;
 
-	
-	// Update is called once per frame
-	void Update () {
+    void Start()
+    {
+        hexGrid = GameObject.FindObjectOfType<HexGrid>();
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("handling input");
