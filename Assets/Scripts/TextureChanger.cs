@@ -10,6 +10,17 @@ public class TextureChanger : MonoBehaviour
     public bool m_displayCells;
     public bool m_changeMaterial;
 
+    private GameObject capsuledObject;
+    private PlayerHealth player;
+
+    private void Start()
+    {
+        capsuledObject = GetComponentInChildren<CapsuledCell>().gameObject;
+        capsuledObject.layer = 8; // free cell
+
+
+    }
+
     private void Update()
     {
         if (m_displayCells)
@@ -23,17 +34,24 @@ public class TextureChanger : MonoBehaviour
         {
             this.GetComponent<Renderer>().material = m_defaultMaterial;
         }
-
     }
-
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.GetComponent<PlayerHealth>())
+        player = collision.gameObject.GetComponent<PlayerHealth>();
+        if (player)
         {
             this.GetComponent<Renderer>().material = m_redMaterial;
-            //Debug.Log("Collision");
             this.m_changeMaterial = true;
+
+
+            // Need to know what id
+            var id = player.GetComponent<Player>().PlayerID;
+
+            // Adjust layers
+            capsuledObject.layer = LayerMask.NameToLayer("OccupiedCell_" + id);
+            player.gameObject.layer = LayerMask.NameToLayer("PlayerOnCell_" + id);
+
         }
     }
 
@@ -41,7 +59,8 @@ public class TextureChanger : MonoBehaviour
     {
         this.m_changeMaterial = false;
         this.GetComponent<Renderer>().material = m_greenMaterial;
-
+        capsuledObject.layer = 8;
+        player.gameObject.layer = LayerMask.NameToLayer("PlayerDefault_" + player.GetComponent<Player>().PlayerID);
     }
 
 

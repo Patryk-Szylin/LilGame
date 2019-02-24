@@ -13,13 +13,13 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - FreeCell
+  - PlayerDefault_1
+  - PlayerOnCell_1
+  - OccupiedCell_1
+  - PlayerDefault_2
+  - PlayerOnCell_2
+  - OccupiedCell_2
   - 
   - 
   - 

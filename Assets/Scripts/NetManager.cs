@@ -4,22 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class NetManager : NetworkManager {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
+public class NetManager : NetworkManager
+{
     public override void OnClientConnect(NetworkConnection conn)
     {
         base.OnClientConnect(conn);
-
+        PlayersLayerManager.SetPlayerLayers();
     }
 
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
@@ -38,9 +28,11 @@ public class NetManager : NetworkManager {
     public override void OnStartHost()
     {
         base.OnStartHost();
-       
-    }
+        
+        
 
+
+    }
 
     public override void OnStartClient(NetworkClient client)
     {

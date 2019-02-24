@@ -16,7 +16,6 @@ public class PlayerAbility : MonoBehaviour {
     void Update () {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("handling input");
             HandleInput();
         }
     }

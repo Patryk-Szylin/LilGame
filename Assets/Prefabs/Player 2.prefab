@@ -45,6 +45,8 @@ GameObject:
   - component: {fileID: 54082939185876572}
   - component: {fileID: 114327233366293822}
   - component: {fileID: 114637494092043460}
+  - component: {fileID: 114971367002264124}
+  - component: {fileID: 114659985808720666}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Untagged
@@ -156,7 +158,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &114066464021076028
 MonoBehaviour:
@@ -214,6 +216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 20
   m_enableWalking: 1
+  m_hasAlly: 1
+  allySpeed: 20
 --- !u!114 &114327233366293822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -332,6 +336,17 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+--- !u!114 &114659985808720666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1194590095827558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ded04088822dfb43b06375e1724f6d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114703717818172938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -347,6 +362,19 @@ MonoBehaviour:
   m_speed: 1
   m_target: {fileID: 0}
   m_bullet: {fileID: 1816075018484576, guid: ff8decc1e2b8b4c4facc7aa2b4d9b590, type: 2}
+--- !u!114 &114971367002264124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1194590095827558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d4741b0a1990a46b8edd8f648d0834, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MwallPrefab: {fileID: 1347330805008616, guid: fe0be0e41a82d6245b1e4e961ad07aaa,
+    type: 2}
 --- !u!136 &136745547515090548
 CapsuleCollider:
   m_ObjectHideFlags: 1
